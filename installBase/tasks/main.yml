@@ -24,7 +24,7 @@
   yum: name={{ item }} state=present
   with_items:
   - git
-  - jwhois
+  - whois
   - lsof
   - lsof
   - lynx
