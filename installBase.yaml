@@ -1,4 +1,5 @@
  - hosts: dummyhost
    roles:
      - { role: installBase }
+     - { role: docker }
 

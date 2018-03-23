@@ -1,6 +1,5 @@
 ---
 # tasks file for docker
 # Install docker
- - name: Install docker
-   package: docker
-   state: latest
+- name: Install docker
+  package: name=docker state=latest
