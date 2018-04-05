@@ -40,6 +40,8 @@
   - iotop
   - strace
   - net-tools
+  - nc
+  - telnet
   - java-1.8.0-openjdk
 - name: "ntp package"
   yum: name=ntp state=installed
