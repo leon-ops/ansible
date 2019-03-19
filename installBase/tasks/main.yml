@@ -6,7 +6,6 @@
        - git
        - jwhois
        - lsof
-       - lsof
        - lynx
        - openssh-server
        - python
@@ -18,6 +17,14 @@
        - unzip
        - vim
        - wget
+       - virtualbox
+       - gwenview
+       - vlc
+       - openjdk-11-jdk
+       - net-tools
+       - sysstat
+  
+       
   when: ansible_distribution == 'Ubuntu'
 
 - name: "install base packages"
