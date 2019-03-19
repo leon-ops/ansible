@@ -23,7 +23,8 @@
        - openjdk-11-jdk
        - net-tools
        - sysstat
-  
+       - ansible
+       
        
   when: ansible_distribution == 'Ubuntu'
 
