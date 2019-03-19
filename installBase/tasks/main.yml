@@ -26,6 +26,8 @@
        - httpie
        - curl
        - byobu
+       - docker.io
+       - vagrant
     
        
   when: ansible_distribution == 'Ubuntu'
