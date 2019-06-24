@@ -28,6 +28,7 @@
        - byobu
        - docker.io
        - vagrant
+       - keepassx
     
        
   when: ansible_distribution == 'Ubuntu'
@@ -55,6 +56,7 @@
   - nc
   - telnet
   - java-1.8.0-openjdk
+  - keepassx
   when: ansible_distribution == 'Centos'
 
   
