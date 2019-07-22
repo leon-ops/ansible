@@ -29,6 +29,7 @@
        - docker.io
        - vagrant
        - keepassx
+       - filezilla
     
        
   when: ansible_distribution == 'Ubuntu'
