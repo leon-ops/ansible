@@ -7,7 +7,6 @@
        - sysstat
        - lsof
        - screen
-       - tcpdump
        - iotop
        - lynx
        - openssh-server
@@ -18,15 +17,17 @@
        - unzip
        - vim
        - wget
-
+# outils diagnostics réseau
+       - strace
+       - nc
+       - tcpdump
        #benchmarck fs
        - fio
        # dev versioning
        - git
        - subversion
-             
+       - telnet      
        - virtualbox
-          
        - openjdk-11-jdk
        
 #ops tools     
@@ -42,8 +43,14 @@
        - keepassx
        - filezilla
        - vlc
-    
        
+- name: Download visual code package
+    get_url: https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb
+    dest: /tmp/vscode.deb
+    
+- name: Install visual code
+  apt: deb="/tmp/vscode.deb"
+         
   when: ansible_distribution == 'Ubuntu'
 
 - name: "install base packages"
