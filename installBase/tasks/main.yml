@@ -3,33 +3,45 @@
 - name: "install base packages"
   apt: name={{item}} state=present
   with_items:
-       - git
+       # outils diagnotisc système
+       - sysstat
        - lsof
+       - screen
+       - tcpdump
+       - iotop
        - lynx
        - openssh-server
        - python
        - rsync
-       - screen
-       - subversion
-       - sysstat
+       - net-tools
        - tree
        - unzip
        - vim
        - wget
+
+       #benchmarck fs
+       - fio
+       # dev versioning
+       - git
+       - subversion
+             
        - virtualbox
-       - gwenview
-       - vlc
+          
        - openjdk-11-jdk
-       - net-tools
-       - sysstat
+       
+#ops tools     
        - ansible
        - httpie
        - curl
-       - byobu
        - docker.io
        - vagrant
+        # outils de dev
+       - tmux
+       # GUI
+       - gwenview
        - keepassx
        - filezilla
+       - vlc
     
        
   when: ansible_distribution == 'Ubuntu'
