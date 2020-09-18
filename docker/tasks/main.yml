@@ -2,4 +2,4 @@
 # tasks file for docker
 # Install docker
 - name: Install docker
-  package: name=docker state=latest
+  package: name=docker.io state=latest
