@@ -1,90 +1,96 @@
 ---
 # tasks file for installBase
 - name: "install base packages"
-  apt: name={{item}} state=present
-  with_items:
+  apt: 
+    state: present
+    pkg:
        # outils diagnotisc système
-       - sysstat
-       - lsof
-       - screen
-       - iotop
-       - lynx
-       - openssh-server
-       - python
-       - rsync
-       - net-tools
-       - tree
-       - unzip
-       - vim
-       - wget
-# outils diagnostics réseau
-       - strace
-       - nc
-       - tcpdump
-       #benchmarck fs
-       - fio
-       # dev versioning
-       - git
-       - subversion
-       - telnet      
-       - virtualbox
-       - openjdk-11-jdk
-       
+      - sysstat
+      - lsof
+      - screen
+      - iotop
+      - lynx
+      - openssh-server
+      - python
+      - rsync
+      - net-tools
+      - tree
+      - unzip
+      - vim
+      - wget
+# ouils diagnostics réseau
+      - strace
+      - netcat
+      - socat
+      - tcpdump
+      - nmap
+      - hydra
+      #benchmarck fs
+      - fio
+      # dev versioning
+      - git
+      - subversion
+      - telnet      
+      - virtualbox
+      - openjdk-11-jdk
+      
 #ops tools     
-       - ansible
-       - httpie
-       - curl
-       - docker.io
-       - vagrant
-        # outils de dev
-       - tmux
-       # GUI
-       - gwenview
-       - keepassx
-       - filezilla
-       - vlc
-       
+      - ansible
+      - httpie
+      - curl
+      - docker.io
+      - vagrant
+       # outils de dev
+      - tmux
+      # GUI
+      - gwenview
+      - keepassx
+      - filezilla
+      - vlc
+      
 - name: Download visual code package
-    get_url: https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb
+  get_url: 
+    url: https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb
     dest: /tmp/vscode.deb
+  when: ansible_distribution == 'Ubuntu'
     
 - name: Install visual code
   apt: deb="/tmp/vscode.deb"
          
-  when: ansible_distribution == 'Ubuntu'
 
-- name: "install base packages"
-  yum: name={{ item }} state=present
-  with_items:
-  - git
-  - whois
-  - lsof
-  - lynx
-  - openssh-server
-  - python
-  - rsync
-  - screen
-  - subversion
-  - sysstat
-  - tree
-  - unzip
-  - vim
-  - wget
-  - iotop
-  - strace
-  - net-tools
-  - nc
-  - telnet
-  - java-1.8.0-openjdk
-  - keepassx
-  when: ansible_distribution == 'Centos'
-
+###- name: "install base packages"
+#  yum: name={{ item }} state=present
+#  with_items:
+#  - git
+#  - whois
+#  - lsof
+#  - lynx
+#  - openssh-server
+#  - python
+#  - rsync
+#  - screen
+#  - subversion
+#  - sysstat
+#  - tree
+#  - unzip
+#  - vim
+#  - wget
+#  - iotop
+#  - strace
+#  - net-tools
+#  - nc
+#  - telnet
+#  - java-1.8.0-openjdk
+#  - keepassx
+#  when: ansible_distribution == 'Centos'
+#
   
 - name: "ntp package"
-  yum: name=ntp state=installed
-  when: ansible_distribution == 'Centos'
+  apt:
+    pkg: ntp
+    state: present
 
-- name: "ntp package"
-  apt: name=ntp state=installed force=yes
-  when: ansible_distribution == 'Ubuntu'
-
+- name: apt update and upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
