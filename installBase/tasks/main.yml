@@ -7,7 +7,6 @@
        # outils diagnotisc système
       - sysstat
       - lsof
-      - screen
       - iotop
       - lynx
       - openssh-server
@@ -20,6 +19,8 @@
       - wget
       - curl
       - expect
+      - tmux
+      - screen
 # ouils diagnostics réseau
       - strace
       - netcat
@@ -38,12 +39,13 @@
       - iotop
       
 #ops tools     
+      - python
       - ansible
       - httpie
       - docker.io
       - vagrant
        # outils de dev
-      - tmux
+      
       #################### GUI ###################
       - gwenview
       - keepassx
@@ -64,37 +66,16 @@
   get_url:
     url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     dest: /tmp/google-chrome-stable_current_amd64.deb
+ 
+        
+- name: Download sublime text3 package
+  get_url:
+    url: https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
+    dest: /tmp/sublime_text_3_build_3211_x64.tar.bz2
     
-- name: Install google-chrom
+- name: Install google-chrome
   apt: deb="/tmp/google-chrome-stable_current_amd64.deb"
 
-###- name: "install base packages"
-#  yum: name={{ item }} state=present
-#  with_items:
-#  - git
-#  - whois
-#  - lsof
-#  - lynx
-#  - openssh-server
-#  - python
-#  - rsync
-#  - screen
-#  - subversion
-#  - sysstat
-#  - tree
-#  - unzip
-#  - vim
-#  - wget
-#  - iotop
-#  - strace
-#  - net-tools
-#  - nc
-#  - telnet
-#  - java-1.8.0-openjdk
-#  - keepassx
-#  when: ansible_distribution == 'Centos'
-#
-  
 - name: "ntp package"
   apt:
     pkg: ntp
