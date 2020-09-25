@@ -44,6 +44,8 @@
       - httpie
       - docker.io
       - vagrant
+      - sshfs
+      - davfs2
        # outils de dev
       
       #################### GUI ###################
