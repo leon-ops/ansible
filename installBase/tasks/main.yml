@@ -21,7 +21,8 @@
       - expect
       - tmux
       - screen
-# ouils diagnostics réseau
+      - pv
+# ouils diagnostics réseau et securité
       - strace
       - netcat
       - socat
