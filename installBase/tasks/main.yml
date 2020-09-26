@@ -46,6 +46,7 @@
       - docker.io
       - vagrant
       - sshfs
+      - sshpass
       - davfs2
        # outils de dev
       
