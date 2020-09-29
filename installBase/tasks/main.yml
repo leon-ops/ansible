@@ -57,6 +57,10 @@
       - vlc
       - firefox
       - gparted
+      - simple-scan
+      - simplescreenrecorder
+      - zoom
+      
       
       # FUN part so mandatory #
       - units
