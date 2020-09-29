@@ -1,0 +1,4 @@
+ - hosts: hibou
+   roles:
+     - { role: installBase }
+#     - { role: docker }

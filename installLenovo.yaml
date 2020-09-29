@@ -1,0 +1,17 @@
+ - hosts: dummyhost
+   roles:
+     - { role: installBase }
+     - { role: docker }
+   tasks:
+     - name: tuning1 = prevent hibernating by closing lid of laptop
+       lineinfile: 
+         path: /etc/systemd/logind.conf
+         line: "HandleLidSwitch=ignore"
+       notify: 
+         - restart logind
+
+   handlers:
+     - name: restart logind
+       service:
+         name: logind.service
+         state: restarted
