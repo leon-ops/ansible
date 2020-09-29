@@ -56,6 +56,11 @@
       - filezilla
       - vlc
       - firefox
+      - gparted
+      
+      # FUN part so mandatory #
+      - units
+      - figlet
       
 - name: Download visual code package
   get_url: 
