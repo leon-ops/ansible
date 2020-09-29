@@ -24,6 +24,8 @@
       - tmux
       - screen
       - pv
+      - zip
+      - ziptools
 # ouils diagnostics réseau et securité
       - strace
       - netcat
