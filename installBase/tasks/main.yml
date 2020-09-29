@@ -1,5 +1,7 @@
 ---
 # tasks file for installBase
+- name: begining installation time. Installation in progress...
+  shell: echo `date`
 - name: "install base packages"
   apt: 
     state: present
@@ -98,3 +100,6 @@
   apt:
     update_cache: yes
     upgrade: yes
+    
+- name: end installation time
+  shell: echo `date`
