@@ -70,12 +70,15 @@
       # FUN part so mandatory #
       - units
       - figlet
+      # Lecture ebook
+      - calibre
+      - pdfshuffler
+      - mupdf
       
 - name: Download visual code package
   get_url: 
     url: https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb
     dest: /tmp/vscode.deb
-  when: ansible_distribution == 'Ubuntu'
     
 - name: Install visual code
   apt: deb="/tmp/vscode.deb"
@@ -84,8 +87,7 @@
   get_url:
     url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     dest: /tmp/google-chrome-stable_current_amd64.deb
-       
-
+      
 - name: Download sublime text3 package
   get_url:
     url: https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
@@ -109,6 +111,6 @@
   apt:
     update_cache: yes
     upgrade: yes
-    
+
 - name: end installation time
   shell: echo `date`
