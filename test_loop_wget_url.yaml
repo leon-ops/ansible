@@ -1,0 +1,14 @@
+ - hosts: dummyhost
+   roles:
+#     - { role: installBase }
+#     - { role: docker }
+   tasks:
+     - name: tuning1 = prevent hibernating by closing lid of laptop
+       get_url:
+         url: "{{ item }}"
+         dest: /tmp
+       loop:
+         - http://localhost/test/1.html
+         - http://localhost/test/2.html
+         - http://localhost/test/3.html
+
