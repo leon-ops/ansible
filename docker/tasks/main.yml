@@ -3,3 +3,12 @@
 # Install docker
 - name: Install docker
   package: name=docker.io state=latest
+
+- systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: add current to docker group
+  shell: usermod -aG docker lli 
+
