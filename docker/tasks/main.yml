@@ -4,10 +4,11 @@
 - name: Install docker
   package: name=docker.io state=latest
 
-- systemd:
+- name: enable docker
+  systemd:
     name: docker
     state: started
-    enabled: true
+    enabled: yes
 
 - name: add current to docker group
   shell: usermod -aG docker lli 
