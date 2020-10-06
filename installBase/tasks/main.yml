@@ -13,6 +13,7 @@
       - lynx
       - openssh-server
       - python
+      - python3
       - rsync
       - net-tools
       - tree
@@ -75,6 +76,7 @@
       # FUN part so mandatory #
       - units
       - figlet
+      - cowsay
       # Lecture ebook
       - calibre
       - pdfshuffler
@@ -85,8 +87,8 @@
     url: "https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb"
     dest: "/tmp/vscode.deb"
     
-#- name: Install visual code
-#  apt: deb="/tmp/vscode.deb"
+- name: Install visual code
+  apt: deb="/tmp/vscode.deb"
 
       
 - name: Download sublime text3 package
@@ -122,8 +124,8 @@
     update_cache: yes
     upgrade: yes
     
-#- name: end installation time
-#  shell: echo `date`
+- name: end installation time
+  shell: echo `date`
 
 - name: permit ssh root login
   lineinfile:
