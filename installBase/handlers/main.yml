@@ -1,2 +1,7 @@
 ---
 # handlers file for installBase
+  - name: restart sshd
+    service:
+      name: sshd
+      state: restarted
+

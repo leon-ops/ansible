@@ -82,11 +82,11 @@
       
 - name: Download visual code package
   get_url: 
-    url: https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb
-    dest: /tmp/vscode.deb
+    url: "https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb"
+    dest: "/tmp/vscode.deb"
     
-- name: Install visual code
-  apt: deb="/tmp/vscode.deb"
+#- name: Install visual code
+#  apt: deb="/tmp/vscode.deb"
 
       
 - name: Download sublime text3 package
@@ -122,6 +122,9 @@
     update_cache: yes
     upgrade: yes
     
+#- name: end installation time
+#  shell: echo `date`
+
 - name: permit ssh root login
   lineinfile:
     path: /etc/ssh/sshd_config
@@ -129,11 +132,11 @@
     state: present
   notify:
     - restart sshd
-       
-- name: end installation time
-  shell: echo `date`
+#cf handler in directory handler for the notify       
 
-handlers:
-  - restart sshd
-    name: sshd
-    state: restarted
+- name: set pub key in root
+  lineinfile:
+    path: /root/.ssh/authorized_keys
+    line: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHTNNLgYxCQqqBDai0lQrANCmuaa4fXdKxm+FLHILmRN5Wo9raIGuuSG6P44qfjg8/kxQUmxFrzdj2o75thokfyKvc6r585OCdlb8d0775u6vE+5TwgwKXUsgZ3tVrmZMzTBLnjE+ujmxj7cle0O3cmsYHxhupev02hyjlZvkuLtKcxkkMTCv6RpF7KeGXcMReUhScVORvgUeTiAEeU5zaHEM7Syse7MdIqNQ2pmKS7f+IBrwDEi5Fx7q67J1YxqYdnhyr/SfRG1DMdl1ZfBwwb5Po1HJ4mldGtX4hjX3eyxdxaGV0rTVHsxITXeOOq8K7XcQBcX9MZDJd0KIKNj/l lli@tech2
+"
+    state: present
