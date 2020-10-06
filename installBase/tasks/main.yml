@@ -69,6 +69,7 @@
       - chromium-browser
       #necessary for openfortigui
       - libqt5keychain1
+      - gnome-tweaks
       
       
       # FUN part so mandatory #
@@ -87,10 +88,6 @@
 - name: Install visual code
   apt: deb="/tmp/vscode.deb"
 
-- name: Download last google-chrome package
-  get_url:
-    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    dest: /tmp/google-chrome-stable_current_amd64.deb
       
 - name: Download sublime text3 package
   get_url:
@@ -102,8 +99,8 @@
     url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
     dest: /tmp/dropbox_2020.03.04_amd64.deb
     
-- name: Install google-chrome
-  apt: deb="/tmp/dropbox_2020.03.04_amd64.deb"
+- name: Download and install google-chrome
+  apt: deb="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
     
 
 - name: Download openfortigui client
@@ -124,6 +121,19 @@
   apt:
     update_cache: yes
     upgrade: yes
-
+    
+- name: permit ssh root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "PermitRootLogin yes"
+    state: present
+  notify:
+    - restart sshd
+       
 - name: end installation time
   shell: echo `date`
+
+handlers:
+  - restart sshd
+    name: sshd
+    state: restarted
