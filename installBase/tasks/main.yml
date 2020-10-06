@@ -54,6 +54,7 @@
       - sshpass
       - ssh-askpass
       - davfs2
+      - apache2
        # outils de dev
       
       #################### GUI ###################
