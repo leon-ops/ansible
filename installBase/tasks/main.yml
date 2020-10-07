@@ -19,6 +19,7 @@
       - tree
       - unzip
       - vim
+      - neovim
       - wget
       - curl
       - expect
@@ -42,7 +43,6 @@
       - virtualbox
       - openjdk-11-jdk
       - iotop
-      - neovim
       - htop
       
 #ops tools     
@@ -82,25 +82,32 @@
       - calibre
       - pdfshuffler
       - mupdf
-      
+
+
+- name: create packages directory
+  file:
+    path: /root/packages
+    state: directory
+
+     
 - name: Download visual code package
   get_url: 
     url: "https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb"
-    dest: "/tmp/vscode.deb"
+    dest: "/root/packages/vscode.deb"
     
 - name: Install visual code
-  apt: deb="/tmp/vscode.deb"
+  apt: deb="/root/packages/vscode.deb"
 
       
 - name: Download sublime text3 package
   get_url:
     url: https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
-    dest: /tmp/sublime_text_3_build_3211_x64.tar.bz2
+    dest: /root/packages/sublime_text_3_build_3211_x64.tar.bz2
 
 - name: Download dropbox client
   get_url:
     url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
-    dest: /tmp/dropbox_2020.03.04_amd64.deb
+    dest: /root/packages/dropbox_2020.03.04_amd64.deb
     
 - name: Download and install google-chrome
   apt: deb="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
@@ -109,10 +116,10 @@
 - name: Download openfortigui client
   get_url:
     url: https://apt.iteas.at/iteas/pool/main/o/openfortigui/openfortigui_0.9.0-3_amd64_focal.deb
-    dest: /tmp/openfortigui_0.9.0-3_amd64_focal.deb
+    dest: /root/packages/openfortigui_0.9.0-3_amd64_focal.deb
     
 - name: Install openfortigui
-  apt: deb="/tmp/openfortigui_0.9.0-3_amd64_focal.deb"
+  apt: deb="/root/packages/openfortigui_0.9.0-3_amd64_focal.deb"
 
 
 - name: "ntp package"

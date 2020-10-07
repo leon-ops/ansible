@@ -3,12 +3,24 @@
 #     - { role: installBase }
 #     - { role: docker }
    tasks:
+     - name: create packages directory
+       file:
+         path: /root/packages
+         state: directory
+
      - name: tuning1 = prevent hibernating by closing lid of laptop
        get_url:
          url: "{{ item }}"
-         dest: /tmp
+         dest: /root/packages
        loop:
          - http://localhost/test/1.html
          - http://localhost/test/2.html
          - http://localhost/test/3.html
+
+     - name: get url package
+       get_url:
+         url: https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
+         dest: /root/packages/sublime_text_3_build_3211_x64.tar.bz2
+
+
 
