@@ -44,7 +44,6 @@
       - openjdk-11-jdk
       - iotop
       - htop
-      
 #ops tools     
       - python
       - ansible
@@ -95,8 +94,8 @@
     url: "https://az764295.vo.msecnd.net/stable/58bb7b2331731bf72587010e943852e13e6fd3cf/code_1.49.1-1600299189_amd64.deb"
     dest: "/root/packages/vscode.deb"
     
-- name: Install visual code
-  apt: deb="/root/packages/vscode.deb"
+#- name: Install visual code
+#  apt: deb="/root/packages/vscode.deb"
 
       
 - name: Download sublime text3 package
@@ -109,8 +108,8 @@
     url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
     dest: /root/packages/dropbox_2020.03.04_amd64.deb
     
-- name: Download and install google-chrome
-  apt: deb="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+#- name: Download and install google-chrome
+#  apt: deb="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
     
 
 - name: Download openfortigui client
@@ -118,8 +117,8 @@
     url: https://apt.iteas.at/iteas/pool/main/o/openfortigui/openfortigui_0.9.0-3_amd64_focal.deb
     dest: /root/packages/openfortigui_0.9.0-3_amd64_focal.deb
     
-- name: Install openfortigui
-  apt: deb="/root/packages/openfortigui_0.9.0-3_amd64_focal.deb"
+#- name: Install openfortigui
+#  apt: deb="/root/packages/openfortigui_0.9.0-3_amd64_focal.deb"
 
 
 - name: "ntp package"
@@ -155,7 +154,7 @@
 
 - name: dbeaver oracle client
   get_url:
-    url: {{ item }}
+    url: "{{ item }}"
     dest: "/root/packages"
   loop:
   - https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
