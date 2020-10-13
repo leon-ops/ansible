@@ -34,6 +34,7 @@
       - tcpdump
       - nmap
       - hydra
+      - iperf3
       #benchmarck fs
       - fio
       # dev versioning
@@ -149,7 +150,6 @@
     line: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHTNNLgYxCQqqBDai0lQrANCmuaa4fXdKxm+FLHILmRN5Wo9raIGuuSG6P44qfjg8/kxQUmxFrzdj2o75thokfyKvc6r585OCdlb8d0775u6vE+5TwgwKXUsgZ3tVrmZMzTBLnjE+ujmxj7cle0O3cmsYHxhupev02hyjlZvkuLtKcxkkMTCv6RpF7KeGXcMReUhScVORvgUeTiAEeU5zaHEM7Syse7MdIqNQ2pmKS7f+IBrwDEi5Fx7q67J1YxqYdnhyr/SfRG1DMdl1ZfBwwb5Po1HJ4mldGtX4hjX3eyxdxaGV0rTVHsxITXeOOq8K7XcQBcX9MZDJd0KIKNj/l lli@tech2
 "
     state: present
-
 
 
 - name: dbeaver oracle client
