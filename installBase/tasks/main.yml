@@ -158,3 +158,4 @@
     dest: "/root/packages"
   loop:
   - https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+  - https://downloadcenter.samsung.com/content/DR/201403/20140311113528786/ULD_V1.00.21.tar.gz
