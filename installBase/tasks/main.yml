@@ -72,7 +72,8 @@
       #necessary for openfortigui
       - libqt5keychain1
       - gnome-tweaks
-      
+      ########## Desktop #####
+      - xsane
       
       # FUN part so mandatory #
       - units
