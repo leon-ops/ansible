@@ -57,6 +57,7 @@
       - davfs2
       - apache2
       - wakeonlan
+      - jq
        # outils de dev
       
       #################### GUI ###################
