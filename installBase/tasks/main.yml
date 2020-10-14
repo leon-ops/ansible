@@ -161,3 +161,11 @@
   loop:
   - https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
   - https://downloadcenter.samsung.com/content/DR/201403/20140311113528786/ULD_V1.00.21.tar.gz
+
+- name: installation of sublime_text
+  shell:
+    cmd: "tar jxvf /root/packages/sublime_text_3_build_3211_x64.tar.bz2 -C /usr/local/src/ "
+
+- name: symbolic link to /usr/bin/
+  shell:
+    cmd: "ln -sf /usr/local/src/sublime_text_3/sublime_text /usr/bin/sublime_text"
