@@ -60,6 +60,8 @@
       - jq
        # outils de dev
       
+      # fingerprinting dns
+      - whois
       #################### GUI ###################
       - gwenview
       - keepassx
@@ -75,6 +77,7 @@
       - gnome-tweaks
       ########## Desktop #####
       - xsane
+      - freeplane
       
       # FUN part so mandatory #
       - units
