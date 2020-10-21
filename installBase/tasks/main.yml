@@ -35,6 +35,8 @@
       - nmap
       - hydra
       - iperf3
+      - fping
+      - hping3
       #benchmarck fs
       - fio
       # dev versioning
