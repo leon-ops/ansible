@@ -82,6 +82,7 @@
       - freeplane
      # remote control
       - rdesktop
+      - freerdp2-x11
       # FUN part so mandatory #
       - units
       - figlet
