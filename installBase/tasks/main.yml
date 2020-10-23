@@ -80,7 +80,8 @@
       ########## Desktop #####
       - xsane
       - freeplane
-      
+     # remote control
+      - rdesktop
       # FUN part so mandatory #
       - units
       - figlet
