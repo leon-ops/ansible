@@ -87,6 +87,7 @@
       - units
       - figlet
       - cowsay
+      - fortune
       # Lecture ebook
       - calibre
       - pdfshuffler
