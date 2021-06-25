@@ -147,3 +147,7 @@
 - name: symbolic link to /usr/bin/
   shell:
     cmd: "ln -sf /usr/local/src/sublime_text_3/sublime_text /usr/bin/sublime_text"
+
+- name : download harmony assitant
+  shell:
+    cmd: "wget https://www.myriad-online.com/linux/harmony-assistant-9.9.3e.0.run"
