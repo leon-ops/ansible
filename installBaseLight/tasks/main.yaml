@@ -151,3 +151,26 @@
 - name : download harmony assitant
   shell:
     cmd: "wget https://www.myriad-online.com/linux/harmony-assistant-9.9.3e.0.run"
+
+- name: Download zoom
+  get_url:
+    url: https://www.myriad-online.com/linux/harmony-assistant-9.9.3e.0.run
+    dest: /root/packages/harmony-assistant-9.9.3e.0.run
+
+- name: Download zoom
+  get_url:
+    url: https://zoom.us/client/latest/zoom_amd64.deb 
+    dest: /root/packages/zoom_amd64.deb
+
+- name: install zoom
+  apt:  
+    deb: /root/packages/zoom_amd64.deb
+
+- name: Download ms teams
+  get_url:
+    url: https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.13653_amd64.deb
+    dest: /root/packages/teams_1.4.00.13653_amd64.deb
+
+- name: install ms teams
+  apt:
+    deb: /root/packages/teams_1.4.00.13653_amd64.deb
