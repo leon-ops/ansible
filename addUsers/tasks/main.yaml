@@ -1,0 +1,24 @@
+- name: Add the user leon with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+  ansible.builtin.user:
+    name: leon
+    shell: /bin/bash
+    password: $6$VFtCScHZmgyUGf.y$hFxm.j2omIBkBY6VnrYKUfE/ePy9FWYiUuitSkXqLA2GcbmFhabdFQXbkngHjCKX2B9SqGXJdaFkiW43dQgjf/
+    groups: sudo, lpadmin, plugdev, adm
+    append: yes
+    
+
+- name: Add the user 'martine'
+  ansible.builtin.user:
+    name: martine
+    shell: /bin/bash
+    password: $6$f8CKrtHSsJCQbnqC$aPL/ROSWuhPNuOz0/PHMsyCPJEDxUmzB5tv2s.ACXB3/azGFRapYsNXRm0wOxTfddKgOSTMtTvUK7QtjVpztH1
+    groups: sudo, lpadmin, plugdev, adm
+    append: yes
+    
+- name: Add the user 'michel'
+  ansible.builtin.user:
+    name: martine
+    shell: /bin/bash
+    password: $6$f8CKrtHSsJCQbnqC$aPL/ROSWuhPNuOz0/PHMsyCPJEDxUmzB5tv2s.ACXB3/azGFRapYsNXRm0wOxTfddKgOSTMtTvUK7QtjVpztH1
+    groups: sudo, lpadmin, plugdev, adm
+    append: yes
