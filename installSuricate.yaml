@@ -1,4 +1,4 @@
- - hosts: dummyhost
+ - hosts: suricate
    roles:
      - { role: installBaseLight }
      - { role: addUsers }
