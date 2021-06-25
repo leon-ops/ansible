@@ -1,0 +1,149 @@
+---
+# tasks file for installBase
+- name: begining installation time. Installation in progress...
+  shell: echo `date`
+- name: "install base packages"
+  apt: 
+    state: present
+    pkg:
+       # outils diagnotisc système
+      - sysstat
+      - lsof
+      - iotop
+      - lynx
+      - openssh-server
+      - python
+      - python3
+      - rsync
+      - net-tools
+      - tree
+      - unzip
+      - vim
+      - neovim
+      - wget
+      - curl
+      - expect
+      - tmux
+      - screen
+      - pv
+      - zip
+# ouils diagnostics réseau et securité
+      - strace
+      - netcat
+      - socat
+      - tcpdump
+      - nmap
+      - hydra
+      - iperf3
+      - fping
+      - hping3
+      #benchmarck fs
+      - fio
+      # dev versioning
+      - git
+      - subversion
+      - telnet      
+      - openjdk-11-jdk
+      - iotop
+      - htop
+#ops tools     
+      - python
+      - ansible
+      - httpie
+      - sshfs
+      - sshpass
+      - ssh-askpass
+      - davfs2
+      - apache2
+      - wakeonlan
+      - jq
+       # outils de dev
+      
+      # fingerprinting dns
+      - whois
+      #################### GUI ###################
+      - gwenview
+      - keepassx
+      - filezilla
+      - vlc
+      - firefox
+      - gparted
+      - simple-scan
+      - simplescreenrecorder
+      - chromium-browser
+      #necessary for openfortigui
+      - libqt5keychain1
+      - gnome-tweaks
+      ########## Desktop #####
+      - xsane
+      - freeplane
+     # remote control
+      - rdesktop
+      - freerdp2-x11
+      # FUN part so mandatory #
+      - units
+      - figlet
+      - cowsay
+      - fortune
+      # Lecture ebook
+      - calibre
+      - pdfshuffler
+      - mupdf
+
+
+- name: create packages directory
+  file:
+    path: /root/packages
+    state: directory
+
+- name: Download sublime text3 package
+  get_url:
+    url: https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
+    dest: /root/packages/sublime_text_3_build_3211_x64.tar.bz2
+
+- name: Download dropbox client
+  get_url:
+    url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
+    dest: /root/packages/dropbox_2020.03.04_amd64.deb
+    
+#- name: Download and install google-chrome
+#  apt: deb="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    
+
+
+- name: "ntp package"
+  apt:
+    pkg: ntp
+    state: present
+
+- name: apt update and upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+    
+- name: end installation time
+  shell: echo `date`
+
+- name: permit ssh root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "PermitRootLogin yes"
+    state: present
+  notify:
+    - restart sshd
+#cf handler in directory handler for the notify       
+
+- name: set pub key in root
+  lineinfile:
+    path: /root/.ssh/authorized_keys
+    line: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHTNNLgYxCQqqBDai0lQrANCmuaa4fXdKxm+FLHILmRN5Wo9raIGuuSG6P44qfjg8/kxQUmxFrzdj2o75thokfyKvc6r585OCdlb8d0775u6vE+5TwgwKXUsgZ3tVrmZMzTBLnjE+ujmxj7cle0O3cmsYHxhupev02hyjlZvkuLtKcxkkMTCv6RpF7KeGXcMReUhScVORvgUeTiAEeU5zaHEM7Syse7MdIqNQ2pmKS7f+IBrwDEi5Fx7q67J1YxqYdnhyr/SfRG1DMdl1ZfBwwb5Po1HJ4mldGtX4hjX3eyxdxaGV0rTVHsxITXeOOq8K7XcQBcX9MZDJd0KIKNj/l lli@tech2
+"
+    state: present
+
+- name: installation of sublime_text
+  shell:
+    cmd: "tar jxvf /root/packages/sublime_text_3_build_3211_x64.tar.bz2 -C /usr/local/src/ "
+
+- name: symbolic link to /usr/bin/
+  shell:
+    cmd: "ln -sf /usr/local/src/sublime_text_3/sublime_text /usr/bin/sublime_text"
